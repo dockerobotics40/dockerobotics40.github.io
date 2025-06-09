@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unitree Setup - Robotics 4.0</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background: #121212;
+      color: #eee;
+    }
+    header {
+      background: #0d47a1;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+    main {
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .ejemplos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+      gap: 2rem;
+    }
+    .ejemplo-card {
+      background: #1e1e1e;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.8);
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ejemplo-card h3 {
+      margin: 0 0 0.5rem;
+      color: #2196f3;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    .ejemplo-card img {
+      max-width: 100%;
+      border-radius: 4px;
+      margin-bottom: 0.8rem;
+    }
+    .ejemplo-card video {
+      max-width: 100%;
+      border-radius: 4px;
+      margin-bottom: 0.8rem;
+      background: black;
+    }
+    .ejemplo-card a {
+      text-decoration: none;
+      background: #2196f3;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .ejemplo-card a:hover {
+      background: #1769aa;
+    }
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      color: #777;
+      font-size: 0.9rem;
+      background: #0d47a1;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Unitree Setup - Robotics 4.0</h1>
+    <p>Ejemplos y demostraciones para el robot Unitree G1</p>
+  </header>
+  <main>
+    <section class="ejemplos-grid">
+
+      <!-- Ejemplo 1 -->
+      <div class="ejemplo-card">
+        <h3>Secuencia de Ejecución</h3>
+        <img src="assets/img/ejemplos/Secuencia_de_Ejecucion.png" alt="Simulador Secuencia de Ejecución" />
+        <video controls>
+          <source src="assets/videos/ejemplos/Secuencia_de_Ejecucion.mp4" type="video/mp4" />
+          Tu navegador no soporta video.
+        </video>
+        <a href="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/Secuencia_de_Ejecucion.md" target="_blank" rel="noopener noreferrer">Ver paso a paso</a>
+      </div>
+
+      <!-- Ejemplo 2 -->
+      <div class="ejemplo-card">
+        <h3>Código básico brazos caminata</h3>
+        <img src="assets/img/ejemplos/Codigo_basico_brazos_caminata.png" alt="Simulador Código básico brazos caminata" />
+        <video controls>
+          <source src="assets/videos/ejemplos/Codigo_basico_brazos_caminata.mp4" type="video/mp4" />
+          Tu navegador no soporta video.
+        </video>
+        <a href="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/Codigo_basico_brazos_caminata.md" target="_blank" rel="noopener noreferrer">Ver paso a paso</a>
+      </div>
+
+      <!-- Ejemplo 3 -->
+      <div class="ejemplo-card">
+        <h3>Código básico movimiento brazo personalizado</h3>
+        <img src="assets/img/ejemplos/Codigo_basico_movimientoBrazo_personalizado.png" alt="Simulador Código básico movimiento brazo personalizado" />
+        <video controls>
+          <source src="assets/videos/ejemplos/Codigo_basico_movimientoBrazo_personalizado.mp4" type="video/mp4" />
+          Tu navegador no soporta video.
+        </video>
+        <a href="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/Codigo_basico_movimientoBrazo_personalizado.md" target="_blank" rel="noopener noreferrer">Ver paso a paso</a>
+      </div>
+
+      <!-- Puedes copiar este patrón para más ejemplos -->
+
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Equipo Robotics 4.0 - Unitree Setup
+  </footer>
+</body>
+</html>
