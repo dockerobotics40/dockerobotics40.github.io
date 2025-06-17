@@ -167,8 +167,8 @@
 
         <!-- YouTube video embebido -->
         <iframe
-          width="480"
-          height="270"
+          width="320"
+          height="180"
           src="https://www.youtube.com/embed/CJo4wxGI6Ks?si=3N4NT0TUILEJakIF"
           title="Video de ejemplo de alto nivel UNITREE"
           frameborder="0"
@@ -253,10 +253,29 @@
       <div class="ejemplo-card">
         <h3>Código ejemplo movimiento y manejo de brazos</h3>
       
-        <!-- Dos imágenes en línea -->
+        <!-- Imágenes con zoom -->
         <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 10px;">
-          <img src="assets/img/ejemplos/paso_uno_ejemploARM.png" alt="Interacción con el terminar ejemplo wasd" style="width: 48%; border-radius: 8px;" />
-          <img src="assets/img/ejemplos/paso_dos_ejemploARM.png" alt="Interacción controles ejemplo wasd" style="width: 48%; border-radius: 8px;" />
+          <a href="#zoom-wasd1">
+            <img src="assets/img/ejemplos/paso_uno_ejemploARM.png"
+                alt="Paso uno brazos"
+                style="width: 48%; border-radius: 8px; cursor: zoom-in;" />
+          </a>
+          <a href="#zoom-wasd2">
+            <img src="assets/img/ejemplos/paso_dos_ejemploARM.png"
+                alt="Paso dos brazos"
+                style="width: 48%; border-radius: 8px; cursor: zoom-in;" />
+          </a>
+        </div>
+
+        <!-- Modales -->
+        <div id="zoom-wasd1" class="img-modal">
+          <a href="#">×</a>
+          <img src="assets/img/ejemplos/paso_uno_ejemploARM.png" alt="Zoom Paso 1 brazo" />
+        </div>
+
+        <div id="zoom-wasd2" class="img-modal">
+          <a href="#">×</a>
+          <img src="assets/img/ejemplos/paso_dos_ejemploARM.png" alt="Zoom Paso 2 brazo" />
         </div>
       
         <!-- Primer video -->
@@ -282,8 +301,16 @@
           <h3>Código movimiento de brazos personalizado e interactivo</h3>
         
           <!-- Imagen adicional -->
-        <img src="assets/img/ejemplos/flujoInteraccionBrazos.png" alt="Secuencia interacción terminal" style="width: 100%; border-radius: 8px; margin-bottom: 10px;" />
-        
+          <a href="#zoom-move">
+            <img src="assets/img/ejemplos/flujoInteraccionBrazos.png"
+                 alt="Interacción terminal brazos"
+                 style="width: 100%; border-radius: 8px; margin-bottom: 10px; cursor: zoom-in;" />
+          </a>
+          <div id="zoom-move" class="img-modal">
+            <a href="#">×</a>
+            <img src="assets/img/ejemplos/flujoInteraccionBrazos.png" alt="Zoom flujo interacciones" />
+          </div>
+          
           <iframe
           width="480"
           height="270"
@@ -306,8 +333,17 @@
         
 
           <!-- Imagen adicional -->
-        <img src="assets/img/ejemplos/ejemplo_caminata_brazo.png" alt="Interacción caminata y brazos" style="width: 100%; border-radius: 8px; margin-bottom: 10px;" />
-        
+          <a href="#zoom-move">
+            <img src="assets/img/ejemplos/ejemplo_caminata_brazo.png"
+                 alt="Interacción terminal brazos y caminata"
+                 style="width: 100%; border-radius: 8px; margin-bottom: 10px; cursor: zoom-in;" />
+          </a>   
+          
+          <div id="zoom-move" class="img-modal">
+            <a href="#">×</a>
+            <img src="assets/img/ejemplos/ejemplo_caminata_brazo.png" alt="Zoom caminata brazo" />
+          </div>
+
           <!-- Primer video -->
           <video controls style="width: 100%; margin-bottom: 10px;">
             <source src="assets/videos/ejemplos/video1.mp4" type="video/mp4" />
