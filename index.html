@@ -72,6 +72,10 @@
     .ejemplo-card a:hover {
       background: #1769aa;
     }
+    .ejemplo-card img:hover {
+      cursor: zoom-in;
+      opacity: 0.95;
+    }
     footer {
       text-align: center;
       padding: 1.5rem 0;
@@ -80,6 +84,33 @@
       background: #0d47a1;
       margin-top: 3rem;
     }
+    .img-modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      padding: 2rem;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+    }
+    .img-modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+    .img-modal:target {
+      display: flex;
+    }
+    .img-modal a {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      color: #fff;
+      font-size: 2rem;
+      text-decoration: none;
+    }
+
   </style>
 <header style="display: flex; align-items: center; padding: 1rem;">
     <img src="assets/img/ejemplos/robotics40_logo.png" alt="Logo Robotics 4.0" style="height: 70px; margin-right: 20px;">
@@ -120,7 +151,21 @@
       <!-- Ejemplo 2 -->
       <div class="ejemplo-card">
         <h3>Ejemplo de alto nivel</h3>
-        <img src="assets/img/ejemplos/Terminal_ejemplo_alto_nivel.png" alt="Interacción del terminal código de python" />
+        <!-- Imagen con zoom -->
+        <a href="#zoom-terminal">
+          <img src="assets/img/ejemplos/Terminal_ejemplo_alto_nivel.png"
+              alt="Interacción del terminal código de python"
+              style="width: 100%; border-radius: 8px; cursor: zoom-in;" />
+        </a>
+
+        <!-- Modal para zoom -->
+        <div id="zoom-terminal" class="img-modal">
+          <a href="#"></a>
+          <img src="assets/img/ejemplos/Terminal_ejemplo_alto_nivel.png"
+              alt="Interacción del terminal código de python" />
+        </div>t="Interacción del terminal código de python" />
+                </div>
+
         <!-- YouTube video embebido -->
         <iframe
           width="480"
@@ -139,10 +184,31 @@
         <h3>Código Básico de Movimientos en Alto Nivel</h3>
       
         <!-- Dos imágenes en línea -->
+        <!-- Imágenes con zoom -->
         <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 10px;">
-          <img src="assets/img/ejemplos/ejemplo_wasd_uno.png" alt="Interacción con el terminar ejemplo wasd" style="width: 48%; border-radius: 8px;" />
-          <img src="assets/img/ejemplos/ejemplo_wasd_dos.png" alt="Interacción controles ejemplo wasd" style="width: 48%; border-radius: 8px;" />
+          <a href="#zoom-wasd1">
+            <img src="assets/img/ejemplos/ejemplo_wasd_uno.png"
+                alt="Interacción terminal ejemplo wasd"
+                style="width: 48%; border-radius: 8px; cursor: zoom-in;" />
+          </a>
+          <a href="#zoom-wasd2">
+            <img src="assets/img/ejemplos/ejemplo_wasd_dos.png"
+                alt="Controles wasd"
+                style="width: 48%; border-radius: 8px; cursor: zoom-in;" />
+          </a>
         </div>
+
+        <!-- Modales -->
+        <div id="zoom-wasd1" class="img-modal">
+          <a href="#"></a>
+          <img src="assets/img/ejemplos/ejemplo_wasd_uno.png" alt="Zoom WASD 1" />
+        </div>
+
+        <div id="zoom-wasd2" class="img-modal">
+          <a href="#"></a>
+          <img src="assets/img/ejemplos/ejemplo_wasd_dos.png" alt="Zoom WASD 2" />
+        </div>
+
       
         <!-- Primer video -->
         <iframe
@@ -155,8 +221,17 @@
           allowfullscreen>
         </iframe> 
       
-        <!-- Imagen adicional -->
-        <img src="assets/img/ejemplos/secuencia_move_time.png" alt="Movimiento ejemplo move in time" style="width: 100%; border-radius: 8px; margin-bottom: 10px;" />
+        <a href="#zoom-move">
+          <img src="assets/img/ejemplos/secuencia_move_time.png"
+               alt="Movimiento ejemplo move in time"
+               style="width: 100%; border-radius: 8px; margin-bottom: 10px; cursor: zoom-in;" />
+        </a>
+        
+        <div id="zoom-move" class="img-modal">
+          <a href="#">×</a>
+          <img src="assets/img/ejemplos/secuencia_move_time.png" alt="Zoom move in time" />
+        </div>
+        
       
         <iframe
           width="480"
@@ -230,11 +305,6 @@
         <div class="ejemplo-card">
           <h3>Código movimiento de brazos personalizado e interactivo - con caminata</h3>
         
-          <!-- Dos imágenes en línea -->
-          <!-- <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 10px;">
-            <img src="assets/img/ejemplos/paso_uno_ejemploARM.png" alt="Interacción con el terminar ejemplo wasd" style="width: 48%; border-radius: 8px;" />
-            <img src="assets/img/ejemplos/paso_dos_ejemploARM.png" alt="Interacción controles ejemplo wasd" style="width: 48%; border-radius: 8px;" />
-          </div> -->
 
           <!-- Imagen adicional -->
         <img src="assets/img/ejemplos/ejemplo_caminata_brazo.png" alt="Interacción caminata y brazos" style="width: 100%; border-radius: 8px; margin-bottom: 10px;" />
