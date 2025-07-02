@@ -163,7 +163,7 @@
 
   <!-- Tarjeta de navegación a la secuencia -->
   <div style="text-align: center; margin-bottom: 2rem;">
-    <a href="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/Secuencia_de_Ejecucion.md" 
+    <a href="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/ Secuencia_de_Ejecucion.md"
        target="_blank" rel="noopener noreferrer"
        style="display: inline-block; padding: 1rem 2rem; background-color: #007c80; color: rgb(5, 5, 5);
               text-decoration: none; border-radius: 10px; font-size: 1.2rem; font-weight: bold;">
@@ -228,80 +228,88 @@
         <a href="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/Ejemplo_alto_nivel.md" target="_blank" rel="noopener noreferrer">Ver paso a paso</a>
       </div>
 
-      <!-- Ejemplo 3 -->
-      <div class="ejemplo-card">
-        <h3>Código Básico de Movimientos en Alto Nivel</h3>
-      
-        <!-- Dos imágenes en línea -->
-        <!-- Imágenes con zoom -->
-        <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 10px;">
-          <a href="#zoom-wasd1">
-            <img src="assets/img/ejemplos/ejemplo_wasd_uno.png"
-                alt="Interacción terminal ejemplo wasd"
-                style="width: 48%; border-radius: 8px; cursor: zoom-in;" />
-          </a>
-          <a href="#zoom-wasd2">
-            <img src="assets/img/ejemplos/ejemplo_wasd_dos.png"
-                alt="Controles wasd"
-                style="width: 48%; border-radius: 8px; cursor: zoom-in;" />
-          </a>
-        </div>
+          <!-- Ejemplo 3.1: Control por teclas -->
+    <div class="ejemplo-card">
+      <h3>Código Básico: Control por Teclas (WASD)</h3>
 
-        <!-- Modales -->
-        <div id="zoom-wasd1" class="img-modal">
-          <a href="#">×</a>
-          <img src="assets/img/ejemplos/ejemplo_wasd_uno.png" alt="Zoom WASD 1" />
-        </div>
-
-        <div id="zoom-wasd2" class="img-modal">
-          <a href="#">×</a>
-          <img src="assets/img/ejemplos/ejemplo_wasd_dos.png" alt="Zoom WASD 2" />
-        </div>
-
-      
-        <!-- Primer video -->
-        <h5>Movimiento real esperado con movimientos de teclas</h5>
-
-        <iframe
-          width="460"
-          height="250"
-          src="https://www.youtube.com/embed/jj1Gn3fxLRc?si=CPcA65oVR0G20dub"
-          title="Video de ejemplo interacción WASD"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe> 
-      
-        <h4>Simulación de trayectoria predefinida</h4>
-
-        <!-- Video 1: trayectoria predefinida -->
-        <iframe
-          width="460"
-          height="250"
-          src="https://www.youtube.com/embed/2albVCj-lfY?si=ctes8ysSY2M1rkZO"
-          title="Simulación trayectoria predefinida"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-        
-        <h5>Movimiento real esperado trayectoria predefinida</h5>
-        <iframe
-          width="460"
-          height="250"
-          src="https://www.youtube.com/embed/o6F-p4FtgTM?si=E-pPeRKYXnoFlLim"
-          title="Video de ejemplo trayectoria predefinida"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe> 
-      
-        <!-- Enlace al paso a paso -->
-        <a href="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/Codigo_basico_movimientos_altoNivel.md"
-           target="_blank" rel="noopener noreferrer">
-          Ver paso a paso
+      <!-- Imágenes con zoom -->
+      <div style="display: flex; gap: 10px; justify-content: center; margin-bottom: 10px;">
+        <a href="#zoom-wasd1">
+          <img src="assets/img/ejemplos/ejemplo_wasd_uno.png"
+              alt="Interacción terminal ejemplo wasd"
+              style="width: 48%; border-radius: 8px; cursor: zoom-in;" />
+        </a>
+        <a href="#zoom-wasd2">
+          <img src="assets/img/ejemplos/ejemplo_wasd_dos.png"
+              alt="Controles wasd"
+              style="width: 48%; border-radius: 8px; cursor: zoom-in;" />
         </a>
       </div>
+
+      <!-- Modales -->
+      <div id="zoom-wasd1" class="img-modal">
+        <a href="#">×</a>
+        <img src="assets/img/ejemplos/ejemplo_wasd_uno.png" alt="Zoom WASD 1" />
+      </div>
+      <div id="zoom-wasd2" class="img-modal">
+        <a href="#">×</a>
+        <img src="assets/img/ejemplos/ejemplo_wasd_dos.png" alt="Zoom WASD 2" />
+      </div>
+
+      <!-- Video control por teclas -->
+      <h5>Movimiento real esperado con teclas</h5>
+      <iframe
+        width="460"
+        height="250"
+        src="https://www.youtube.com/embed/jj1Gn3fxLRc?si=CPcA65oVR0G20dub"
+        title="Video de ejemplo interacción WASD"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+
+      <!-- Enlace al paso a paso -->
+      <a href="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/Codigo_basico_wasd_altoNivel.md"
+        target="_blank" rel="noopener noreferrer">
+        Ver paso a paso
+      </a>
+    </div>
+
+    <!-- Ejemplo 3.2: Trayectoria predefinida -->
+    <div class="ejemplo-card">
+      <h3>Código Básico: Trayectoria Predefinida</h3>
+
+      <!-- Video simulación -->
+      <h5>Simulación en entorno virtual</h5>
+      <iframe
+        width="460"
+        height="250"
+        src="https://www.youtube.com/embed/2albVCj-lfY?si=ctes8ysSY2M1rkZO"
+        title="Simulación trayectoria predefinida"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+
+      <!-- Video movimiento real -->
+      <h5>Movimiento real esperado</h5>
+      <iframe
+        width="460"
+        height="250"
+        src="https://www.youtube.com/embed/o6F-p4FtgTM?si=E-pPeRKYXnoFlLim"
+        title="Video de ejemplo trayectoria predefinida"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+
+      <!-- Enlace al paso a paso (actualízalo cuando tengas el link correcto) -->
+      <a href="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/Codigo_basico_trayectoria_altoNivel copy.md"
+        target="_blank" rel="noopener noreferrer">
+        Ver paso a paso
+      </a>
+    </div>
+
      
       <!-- Ejemplo 4-->
       <div class="ejemplo-card">
