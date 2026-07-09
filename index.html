@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNITREE G1 Setup · Robotics 4.0</title>
+<meta name="description" content="Portal de configuración y ejemplos para el Unitree G1. Instalación de SDK2, ROS2, Python, simulación y demostraciones prácticas — Robotics 4.0.">
+<link rel="icon" type="image/png" href="assets/img/ejemplos/robotics40_logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ FONDO DECORATIVO GLOBAL ============ -->
+<div class="grid-backdrop" aria-hidden="true"></div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a class="brand" href="#top">
+      <img class="brand-logo" src="assets/img/ejemplos/robotics40_logo.png" alt="Logo Robotics 4.0">
+      <span class="brand-text">
+        <strong>UNITREE G1 Setup</strong>
+        <em>Robotics 4.0 · Ejemplos y demos</em>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#instalacion">Instalación</a>
+      <a href="#simulacion">Simulación</a>
+      <a href="#secuencia">Secuencia</a>
+      <a href="#ejemplos">Ejemplos</a>
+      <a class="nav-repo" href="https://github.com/dockerobotics40/Unitree-setup" target="_blank" rel="noopener">
+        Repositorio ↗
+      </a>
+    </nav>
+
+    <div class="status-chip" title="Estado simbólico del canal DDS">
+      <span class="pulse-dot" aria-hidden="true"></span>
+      DDS · CANAL ACTIVO
+    </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Ticker de topics -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>rt/lowcmd</span><span>rt/lowstate</span><span>loco_client · move()</span>
+      <span>unitree_sdk2</span><span>unitree_ros2</span><span>unitree_sdk2_python</span>
+      <span>SetVelocity(vx, vy, omega)</span><span>arm · ctrl</span><span>odometría · nav</span>
+      <span>rt/lowcmd</span><span>rt/lowstate</span><span>loco_client · move()</span>
+      <span>unitree_sdk2</span><span>unitree_ros2</span><span>unitree_sdk2_python</span>
+      <span>SetVelocity(vx, vy, omega)</span><span>arm · ctrl</span><span>odometría · nav</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero container" id="inicio">
+    <div class="hero-copy">
+      <p class="eyebrow">Equipo de desarrollo · Robotics 4.0</p>
+      <h1>Configura y controla el <span>Unitree G1</span> paso a paso.</h1>
+      <p class="hero-lead">
+        Todo lo necesario para instalar y utilizar los repositorios de UNITREE,
+        junto con ejemplos básicos desarrollados por nuestro equipo: desde comandos
+        de bajo nivel hasta locomoción de alto nivel, control por teclado, manejo de
+        brazos y navegación por odometría. Documentación pensada para acelerar tu
+        aprendizaje y puesta en marcha.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#instalacion">Empezar instalación</a>
+        <a class="btn btn-ghost" href="#ejemplos">Ver ejemplos</a>
+      </div>
+
+      <dl class="hero-stats">
+        <div><dt>8</dt><dd>ejemplos prácticos documentados</dd></div>
+        <div><dt>3</dt><dd>SDK: sdk2 · ros2 · python</dd></div>
+        <div><dt>2</dt><dd>modos: simulación + robot real</dd></div>
+      </dl>
+
+      <p class="hero-credits">
+        <strong>Autores:</strong> Sofia Castaño, Samuel Romero, Adrian Chavarro y Mario Arbulu
+        (Development Team, Robotics 4.0).
+      </p>
+    </div>
+
+    <div class="hero-figure" aria-hidden="true">
+      <svg viewBox="0 0 400 520" class="joint-map">
+        <g class="joint-lines">
+          <line x1="200" y1="58"  x2="200" y2="110"/>
+          <line x1="150" y1="110" x2="250" y2="110"/>
+          <line x1="150" y1="110" x2="118" y2="176"/>
+          <line x1="118" y1="176" x2="98"  y2="242"/>
+          <line x1="250" y1="110" x2="282" y2="176"/>
+          <line x1="282" y1="176" x2="302" y2="242"/>
+          <line x1="200" y1="110" x2="200" y2="192"/>
+          <line x1="200" y1="192" x2="174" y2="230"/>
+          <line x1="200" y1="192" x2="226" y2="230"/>
+          <line x1="174" y1="230" x2="168" y2="342"/>
+          <line x1="226" y1="230" x2="232" y2="342"/>
+          <line x1="168" y1="342" x2="163" y2="452"/>
+          <line x1="232" y1="342" x2="237" y2="452"/>
+          <line x1="163" y1="452" x2="148" y2="460"/>
+          <line x1="237" y1="452" x2="252" y2="460"/>
+        </g>
+        <g class="joint-nodes">
+          <circle cx="200" cy="40"  r="18" class="n0"/>
+          <circle cx="150" cy="110" r="6" class="n1"/>
+          <circle cx="250" cy="110" r="6" class="n2"/>
+          <circle cx="118" cy="176" r="6" class="n3"/>
+          <circle cx="282" cy="176" r="6" class="n4"/>
+          <circle cx="98"  cy="242" r="5" class="n5"/>
+          <circle cx="302" cy="242" r="5" class="n6"/>
+          <circle cx="200" cy="192" r="6" class="n7"/>
+          <circle cx="174" cy="230" r="6" class="n8"/>
+          <circle cx="226" cy="230" r="6" class="n9"/>
+          <circle cx="168" cy="342" r="6" class="n10"/>
+          <circle cx="232" cy="342" r="6" class="n11"/>
+          <circle cx="163" cy="452" r="6" class="n12"/>
+          <circle cx="237" cy="452" r="6" class="n13"/>
+        </g>
+        <g class="joint-labels">
+          <text x="212" y="34">HEAD</text>
+          <text x="60"  y="172">LeftElbow</text>
+          <text x="212" y="206">WaistYaw</text>
+          <text x="240" y="332">RightKnee</text>
+          <text x="70"  y="456">LeftAnkle</text>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ INSTALACIÓN ============ -->
+  <section class="section" id="instalacion">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Antes de empezar</p>
+        <h2>Instala los componentes esenciales</h2>
+        <p class="section-lead">
+          Comienza instalando los SDK de UNITREE. Elige la variante que necesites
+          según tu flujo de trabajo: C++, ROS2 o Python.
+        </p>
+      </header>
+
+      <div class="install-row">
+        <button class="btn btn-block" data-doc="https://github.com/dockerobotics40/Unitree-setup/blob/main/docs/Instalacion_unitree_sdk2.md">
+          <span class="btn-tag">C++</span> Instalar unitree_sdk2
+        </button>
+
+        <button class="btn btn-block" data-doc="https://github.com/dockerobotics40/Unitree-setup/blob/main/docs/Instalacion_unitree_ros2.md">
+          <span class="btn-tag">ROS2</span> Instalar unitree_ros
+        </button>
+
+        <button class="btn btn-block" data-doc="https://github.com/dockerobotics40/Unitree-setup/blob/main/docs/Instalacion_unitree_sdk2_python.md">
+          <span class="btn-tag">PY</span> Instalar unitree_sdk2_python
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIMULACIÓN ============ -->
+  <section class="section section-alt" id="simulacion">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">¿Sin robot físico?</p>
+        <h2>Prueba primero en simulación</h2>
+        <p class="section-lead">
+          Una vez instalados los SDK, si aún no cuentas con el robot físico puedes
+          interactuar en simulación. Esto te permite practicar y validar los ejemplos
+          antes de probarlos en hardware real.
+        </p>
+      </header>
+
+      <div class="install-row install-row-sim">
+        <button class="btn btn-ghost btn-block" data-doc="https://github.com/dockerobotics40/Unitree-setup/blob/main/docs/Instalacion_recursos_simulacion.md">
+          🖥️ Instalación de recursos de simulación
+        </button>
+
+        <button class="btn btn-ghost btn-block" data-doc="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/Simulacion_G1_Mujoco.md">
+          🎮 Implementación en simulación (MuJoCo)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SECUENCIA RECOMENDADA ============ -->
+  <section class="section" id="secuencia">
+    <div class="container">
+      <div class="workshop-panel sequence-panel">
+        <div class="workshop-copy">
+          <p class="eyebrow">Ruta recomendada</p>
+          <h2>Sigue la secuencia de ejecución</h2>
+          <p>
+            Antes de lanzarte a los ejemplos, te recomendamos seguir esta secuencia
+            para entender el flujo completo del proyecto y ejecutar cada pieza en el
+            orden correcto.
+          </p>
+          <ul class="workshop-list">
+            <li><strong>Paso 1</strong> — instala los SDK y, si aplica, los recursos de simulación.</li>
+            <li><strong>Paso 2</strong> — revisa la secuencia general de ejecución del proyecto.</li>
+            <li><strong>Paso 3</strong> — recorre los ejemplos en el orden sugerido más abajo.</li>
+          </ul>
+          <div class="workshop-actions">
+            <button class="btn btn-primary" data-doc="https://github.com/dockerobotics40/Unitree-setup/blob/main/ejemplos/%20Secuencia_de_Ejecucion.md">
+              👉 Ver secuencia general de ejecución
+            </button>
+            <span class="code-pill">./run</span>
+          </div>
+        </div>
+
+        <div class="workshop-visual" aria-hidden="true">
+          <svg viewBox="0 0 220 220">
+            <rect x="30" y="30" width="160" height="160" class="square-path"/>
+            <circle cx="30" cy="30" r="7" class="square-node"/>
+            <circle cx="190" cy="30" r="7" class="square-node" style="animation-delay:.4s"/>
+            <circle cx="190" cy="190" r="7" class="square-node" style="animation-delay:.8s"/>
+            <circle cx="30" cy="190" r="7" class="square-node" style="animation-delay:1.2s"/>
+            <circle r="6" class="square-runner">
+              <animateMotion dur="6s" repeatCount="indefinite"
+                path="M30,30 L190,30 L190,190 L30,190 Z" />
+            </circle>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EJEMPLOS ============ -->
+  <section class="section section-alt" id="ejemplos">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Manos a la obra</p>
+        <h2>Ejemplos y demostraciones del G1</h2>
+        <p class="section-lead">
+          Aquí puedes ver ejemplos de lo que se puede hacer con cada código. Cada
+          tarjeta incluye el video del movimiento real esperado y el enlace al paso
+          a paso. Haz clic en cualquier imagen para ampliarla.
+        </p>
+      </header>
+
+      <div class="card-grid" id="examplesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ ENLACES OFICIALES ============ -->
+  <section class="section links-section">
+    <div class="container links-inner">
+      <p class="eyebrow">Enlaces del proyecto y de Unitree</p>
+      <div class="chip-row">
+        <a class="chip" href="https://github.com/dockerobotics40/Unitree-setup" target="_blank" rel="noopener">
+          github.com/dockerobotics40/Unitree-setup ↗
+        </a>
+        <a class="chip" href="https://github.com/unitreerobotics/unitree_sdk2" target="_blank" rel="noopener">
+          github.com/unitreerobotics/unitree_sdk2 ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div>
+      <strong>Robotics 4.0</strong>
+      <span>· UNITREE G1 Setup</span>
+    </div>
+    <a href="https://github.com/dockerobotics40/Unitree-setup" target="_blank" rel="noopener">
+      Documentación completa en GitHub ↗
+    </a>
+    <span class="footer-authors">Sofia Castaño · Samuel Romero · Adrian Chavarro · Mario Arbulu</span>
+    <span id="year"></span>
+  </div>
+</footer>
+
+<!-- Lightbox para zoom de imágenes -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">×</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
